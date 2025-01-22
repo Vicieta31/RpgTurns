@@ -55,17 +55,19 @@ public class CalcularSpeedTurnos : MonoBehaviour
         pepe.text = "";
         float tempAV = AvCharacter[0].Value;
         CurrentTurnPlayer = AvCharacter[0].Key;
+        float newValue = 0;
 
         for (int i = 0; i < AvCharacter.Count; i++)
         {
             var pair = AvCharacter[i];
-            float newValue = pair.Value - tempAV;
-
-            if (newValue <= 0)
-            {
-                newValue = BaseAVs[pair.Key]; // Reiniciar al valor base
-            }
+            newValue = pair.Value - tempAV;
+            
             AvCharacter[i] = new KeyValuePair<int, float>(pair.Key, newValue);
+        }
+        if (AvCharacter[0].Value == 0)
+        {
+            newValue = BaseAVs[AvCharacter[0].Key]; // Reiniciar al valor base
+            AvCharacter[0] = new KeyValuePair<int, float>(AvCharacter[0].Key, newValue);
         }
 
         AvCharacter = AvCharacter.OrderBy(pair => pair.Value).ToList();
