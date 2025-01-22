@@ -16,7 +16,6 @@ public class CalcularSpeedTurnos : MonoBehaviour
     private Dictionary<int, float> BaseAVs = new Dictionary<int, float>(); // Guardar valores base de acción
 
     int AV_Div = 10000;
-    private bool various0Av = false;
     private int CurrentTurnPlayer = -1;
 
     void Start()
@@ -39,14 +38,7 @@ public class CalcularSpeedTurnos : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (various0Av == false)
-            {
-                NextTurn();
-            }
-            else
-            {
-
-            }
+            NextTurn();
         }
     }
 
