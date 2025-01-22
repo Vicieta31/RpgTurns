@@ -16,7 +16,7 @@ public class CalcularSpeedTurnos : MonoBehaviour
     private Dictionary<int, float> BaseAVs = new Dictionary<int, float>(); // Guardar valores base de acción
 
     int AV_Div = 10000;
-    private int CurrentTurnPlayer = -1;
+    int CurrentTurnPlayer = -1;
 
     void Start()
     {
@@ -30,7 +30,6 @@ public class CalcularSpeedTurnos : MonoBehaviour
         AvCharacter = AvCharacter.OrderBy(pair => pair.Value).ToList();
 
         ShowAV();
-
     }
 
     // Update is called once per frame
@@ -75,7 +74,14 @@ public class CalcularSpeedTurnos : MonoBehaviour
         pepe.text = $"<b>Turno del jugador: {CurrentTurnPlayer}</b>\n" + pepe.text;
         foreach (var pair in AvCharacter)
         {
-            pepe.text += $"Player {pair.Key}: {pair.Value}\n";
+            if (CurrentTurnPlayer == pair.Key)
+            {
+                pepe.text += $"<color=red>Player {pair.Key}: {pair.Value}</color>\n";
+            }
+            else
+            {
+                pepe.text += $"Player {pair.Key}: {pair.Value}\n";
+            }
         }
     }
 }

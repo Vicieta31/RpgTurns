@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pepe: {fileID: 1491683386}
-  Speeds: 640000005f000000a5000000b4000000
+  Speeds: 640000005f000000a5000000c8000000
 --- !u!4 &1333776106
 Transform:
   m_ObjectHideFlags: 0
